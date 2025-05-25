@@ -15,31 +15,33 @@
 
 <body>
     <aside>
-        <img src="./img/Logo.svg" alt="Logo CodeConnect">
+        <img src="./img/Logo.svg" alt="logo do codeconnect">
         <nav>
             <ul class="lista-links">
-                <li><a href="#" class="link-destaque">Publicar</a></li>
+                <li>
+                    <a href="#" class="link-destaque">Publicar</a>
+                </li>
                 <li>
                     <a href="#">
-                        <img src="./img/feed.svg" alt="Feed Icon">
+                        <img src="./img/feed.svg">
                         Feed
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="./img/account_circle.svg" alt="Account Icon">
+                        <img src="./img/account_circle.svg">
                         Perfil
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="./img/info.svg" alt="Info Icon">
+                        <img src="./img/info.svg">
                         Sobre nós
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="./img/logout.svg" alt="Exit Icon">
+                        <img src="./img/logout.svg">
                         Sair
                     </a>
                 </li>
@@ -51,43 +53,44 @@
         <div class="container-upload-imagem">
             <div class="container-imagem">
                 <img src="./img/imagem1.png" alt="" class="main-imagem">
-                <button>Carregar imagem</button>
-                <div class="container-imagem-nome">
-                    <p>image_projeto.png</p>
-                    <img src="./img/close.svg">
+            </div>
+            <button id="upload-btn">Carregar imagem</button>
+            <input type="file" id="image-upload" accept="image/" style="display: none" />
+            <div class="container-imagem-nome">
+                <p>image_projeto.png</p>
+                <img src="./img/close.svg">
+            </div>
+        </div>
+        <div class="container-descricao">
+            <h2>Novo projeto</h2>
+            <form>
+                <div>
+                    <label for="nome">Nome do projeto</label>
+                    <input type="text" id="nome" name="nome" />
                 </div>
-            </div>
-            <div class="container-descricao">
-                <h2>Novo projeto</h2>
-                <form>
-                    <div>
-                        <label for="nome">Nome do projeto</label>
-                        <input type="text" name="nome" id="nome" />
-                    </div>
-                    <div>
-                        <label for="descricao">Descrição</label>
-                        <textarea name="descricao" id="descricao"></textarea>
-                    </div>
-                    <div>
-                        <label for="categoria">Tags</label>
-                        <input type="text" name="categoria" id="categoria" />
-                    </div>
-                    <ul class="lista-tags">
-                        <li>
-                            <p>Front-end</p>
-                            <img src="./img/close-black.svg" alt="">
-                        </li>
-                    </ul>
-                    <div class="container-botoes">
-                        <button class="botao-descartar">Descartar</button>
-                        <button class="botao-publicar">Publicar</button>
-                    </div>
-                </form>
-            </div>
+                <div>
+                    <label for="descricao">Descricao</label>
+                    <textarea id="descricao" name="descricao"></textarea>
+                </div>
+                <div>
+                    <label for="categoria">Tags</label>
+                    <input type="text" id="categoria" name="categoria" />
+                </div>
+                <ul class="lista-tags">
+                    <li>
+                        <p>Front-end</p>
+                        <img src="./img/close-black.svg">
+                    </li>
+                </ul>
+                <div class="container-botoes">
+                    <button class="botao-descartar">Descartar</button>
+                    <button class="botao-publicar">Publicar</button>
+                </div>
+            </form>
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
