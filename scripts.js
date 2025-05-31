@@ -39,13 +39,18 @@ inputUpload.addEventListener("change", async (evento) => {
 const inputTags = document.getElementById("input-tags");
 const listaTags = document.querySelector(".lista-tags");
 
-inputTags.addEventListener("keypress", (evento) => {
+inputTags.addEventListener("keypress", async (evento) => {
     if (evento.key === "Enter") {
         evento.preventDefault();
         const tag = inputTags.value.trim();
-        if (tag) {
-            adicionarTag(tag);
-            inputTags.value = "";
+        try {
+            if (tag && await verificaTagsDisponiveis(tag)) {
+                adicionarTag(tag);
+                inputTags.value = "";
+            }
+        } catch (error) {
+            console.error("Erro ao verificar a tag:", error);
+            alert("Erro ao verificar a tag. Verifique o console para mais detalhes.");
         }
     }
 });
@@ -70,3 +75,13 @@ listaTags.addEventListener("click", (evento) => {
         listaTags.removeChild(itemTag);
     }
 })
+
+const tagsDisponiveis = ["front-end", "programação", "data science", "back-end", "devops", "mobile", "design", "ux/ui", "machine learning", "inteligência artificial"];
+
+async function verificaTagsDisponiveis(tag) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(tagsDisponiveis.includes(tag));
+        }, 1000);
+    });
+}
