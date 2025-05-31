@@ -57,8 +57,16 @@ function adicionarTag(tag) {
 
     textoItem.textContent = tag;
     imagemRemover.src = "./img/close-black.svg";
+    imagemRemover.classList.add("close-tag");
 
     novaTag.appendChild(textoItem);
     novaTag.appendChild(imagemRemover);
     listaTags.appendChild(novaTag);
 }
+
+listaTags.addEventListener("click", (evento) => {
+    if (evento.target.classList.contains("close-tag")) {
+        const itemTag = evento.target.parentElement;
+        listaTags.removeChild(itemTag);
+    }
+})
