@@ -85,3 +85,46 @@ async function verificaTagsDisponiveis(tag) {
         }, 1000);
     });
 }
+
+const botaoPublicar = document.querySelector(".botao-publicar");
+botaoPublicar.addEventListener("click", async (evento) => {
+    evento.preventDefault();
+
+    const nomeDoProjeto = document.getElementById("nome").value.trim();
+    const descricaoDoProjeto = document.getElementById("descricao").value.trim();
+    const tags = Array.from(listaTags.querySelectorAll("li p")).map(item => item.textContent);
+    const imagem = imagemPrincipal.src;
+
+    if (!nomeDoProjeto || !descricaoDoProjeto || tags.length === 0 || !imagem) {
+        alert("Por favor, preencha todos os campos antes de publicar.");
+        return;
+    }
+
+    const projeto = {
+        nome: nomeDoProjeto,
+        descricao: descricaoDoProjeto,
+        tags: tags,
+        imagem: imagem
+    };
+
+    try {
+        await publicarProjeto(projeto.nome, projeto.descricao, projeto.tags, projeto.imagem);
+        console.log("Projeto publicado:", projeto);
+        alert("Projeto publicado com sucesso!");
+    } catch (error) {
+        console.error(error);
+        alert("Erro ao publicar o projeto. Verifique o console para mais detalhes.");
+    }
+});
+
+async function publicarProjeto(nome, descricao, tags, imagem) {
+    // Simula uma chamada de API para publicar o projeto
+    return new Promise((resolve, reject) => {
+        const sucesso = Math.random() > 0.4; // 60% de chance de sucesso
+        if (sucesso) {
+            resolve();
+        } else {
+            reject("Erro ao publicar o projeto. Tente novamente mais tarde.");
+        }
+    });
+}
