@@ -128,3 +128,15 @@ async function publicarProjeto(nome, descricao, tags, imagem) {
         }
     });
 }
+
+const botaoDescartar = document.querySelector(".botao-descartar");
+botaoDescartar.addEventListener("click", (evento) => {
+    evento.preventDefault();
+
+    const formulario = document.querySelector("form");
+    formulario.reset();
+
+    imagemPrincipal.src = "./img/imagem1.png";
+    nomeDaImagem.textContent = "Nenhuma imagem selecionada";
+    listaTags.innerHTML = "";
+});
